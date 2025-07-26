@@ -1,5 +1,5 @@
 # Kiindulás a hivatalos IBeam image-ből  
-FROM voyz/ibeam:0.5.2-rc1
+FROM voyz/ibeam:latest
 
 # Frissítjük a csomaglistát és telepítjük a socat eszközt  
 USER root  
