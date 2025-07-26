@@ -1,6 +1,6 @@
 proxyRemoteSsl: true
 listenPort: 5000
-listenSsl: true
+listenSsl: false
 ips:
   allow:
     - 0.0.0.0/0
