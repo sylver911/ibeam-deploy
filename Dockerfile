@@ -7,5 +7,5 @@ RUN apt-get update && apt-get install -y socat && rm -rf /var/lib/apt/lists/*
 
 # Saját gateway konfiguráció másolása az inputs könyvtárba  
 # (Kikapcsolt SSL és opcionálisan nyitottabb IP engedélyezés)  
-COPY conf.yaml /srv/inputs/conf.yaml
+COPY srv/inputs/conf.yaml /srv/inputs/conf.yaml
 
