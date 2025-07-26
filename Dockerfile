@@ -9,9 +9,3 @@ RUN apt-get update && apt-get install -y socat && rm -rf /var/lib/apt/lists/*
 # (Kikapcsolt SSL és opcionálisan nyitottabb IP engedélyezés)  
 COPY conf.yaml /srv/inputs/conf.yaml
 
-# Entrypoint script bemásolása és futtathatóvá tétele  
-COPY entrypoint.sh /entrypoint.sh  
-RUN chmod +x /entrypoint.sh
-
-# Indítási parancs  
-ENTRYPOINT ["/entrypoint.sh"]
