@@ -1,2 +1,6 @@
+[build]
+builder = "docker"
+
 [deploy]
-  inputs = ["inputs"]
+inputs = ["inputs"]
+port = 5000
