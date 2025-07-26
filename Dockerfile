@@ -1,7 +1,17 @@
-# Használjuk a hivatalos IBeam alapképet
+# Kiindulás a hivatalos IBeam image-ből  
 FROM voyz/ibeam:latest
 
-# Dokumentáljuk a portot, amelyen a gateway fut
+# Frissítjük a csomaglistát és telepítjük a socat eszközt  
+USER root  
+RUN apt-get update && apt-get install -y socat && rm -rf /var/lib/apt/lists/*
 
-# Nem írunk CMD-t vagy ENTRYPOINT-et, 
-# hogy a base image beépített startere induljon el automatikusan
+# Saját gateway konfiguráció másolása az inputs könyvtárba  
+# (Kikapcsolt SSL és opcionálisan nyitottabb IP engedélyezés)  
+COPY conf.yaml /srv/inputs/conf.yaml
+
+# Entrypoint script bemásolása és futtathatóvá tétele  
+COPY entrypoint.sh /entrypoint.sh  
+RUN chmod +x /entrypoint.sh
+
+# Indítási parancs  
+ENTRYPOINT ["/entrypoint.sh"]
