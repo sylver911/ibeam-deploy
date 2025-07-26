@@ -7,3 +7,5 @@ ips:
 cors:
   origin.allowed: "*"
   allowCredentials: false
+svcEnvironment: "v1"
+
