@@ -3,5 +3,4 @@ FROM voyz/ibeam:latest
 
 # Frissítjük a csomaglistát és telepítjük a socat eszközt  
 USER root  
-RUN apt-get update && apt-get install -y socat && rm -rf /var/lib/apt/lists/*
 EXPOSE 5000
