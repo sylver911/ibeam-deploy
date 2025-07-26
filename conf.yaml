@@ -1,5 +1,5 @@
 proxyRemoteSsl: true
-listenPort: 5000
+listenPort: {$PORT}
 listenSsl: false
 ips:
   allow:
