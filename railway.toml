@@ -1,6 +1,3 @@
-[build]
-builder = "docker"
-
 [deploy]
 inputs = ["inputs"]
 port = 5000
