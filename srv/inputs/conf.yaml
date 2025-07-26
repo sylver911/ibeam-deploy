@@ -1,4 +1,3 @@
-proxyRemoteSsl: true
 listenPort: 5000
 listenSsl: false
 ips:
@@ -8,4 +7,3 @@ cors:
   origin.allowed: "*"
   allowCredentials: false
 svcEnvironment: "v1"
-trustAll: true
