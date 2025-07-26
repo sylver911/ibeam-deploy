@@ -1,6 +1,5 @@
 #!/bin/bash
 # Indítjuk az IB Gateway-t IBeam-en keresztül (háttérben)
-ibeam_starter.py -s &   # -s kapcsoló: csak start (ha nem fut), de itt indul a gateway
 
 # Megvárjuk, hogy a gateway valóban elinduljon a 5000-es porton
 # (Egy egyszerű várakozás - pl. sleep - vagy aktív pollinggal ellenőrizhetjük a /iserver/auth/status választ.)
