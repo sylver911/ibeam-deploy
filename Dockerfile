@@ -5,16 +5,17 @@ RUN apt-get update \
  && apt-get install -y socat \
  && rm -rf /var/lib/apt/lists/*
 
-# Másoljuk át az egész konfigurációs mappát
+# Konfiguráció másolása
 COPY srv/inputs /srv/inputs
 
-# Outputs könyvtár létrehozása
+# Outputs könyvtár
 RUN mkdir -p /srv/outputs && chmod 777 /srv/outputs
 
-# Entrypoint script másolása és futtathatóvá tétele
-COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+# Entrypoint script másolása
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
-# Fontos: az eredeti CMD megőrzése!
-ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
-# Ne add meg a CMD-t, hagyd az alap image-ből!
+# FONTOS: ne írjuk felül az entrypointot!
+# Csak futtassuk a scriptet, ami módosítja a konfigot
+# majd a base image eredeti entrypointja fut le
+CMD ["/bin/sh", "-c", "/docker-entrypoint.sh && exec $(eval echo \"$@\")"]
