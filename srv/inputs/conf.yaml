@@ -2,7 +2,7 @@ ip2loc: "US"
 proxyRemoteSsl: true
 proxyRemoteHost: "https://api.ibkr.com"
 listenPort: 5000
-listenSsl: true
+listenSsl: false
 ccp: false
 authDelay: 3000
 portalBaseURL: ""
@@ -20,12 +20,6 @@ webApps:
     index: "index.html"
 ips:
   allow:
-    - 10.*
-    - 192.*
-    - 131.216.*
-    - 172.17.0.* # docker internal
-    - 127.0.0.1 # localhost
     - 0.0.0.0/0 # all other addresses
-    - x.x.x.x # IP address of your machine used to call the API
   deny:
     - 212.90.324.10
