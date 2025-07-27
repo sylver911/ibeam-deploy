@@ -11,3 +11,4 @@ sed -i "s|\${PORT}|$PORT|g" /srv/inputs/conf.yaml
 # VISSZAADJUK A VEZÉRLÉST AZ EREDETI IMAGE-NEK
 # Nem futtatunk semmit, csak visszatérünk
 # Az eredeti entrypoint és CMD fog futni
+exec "$@"
