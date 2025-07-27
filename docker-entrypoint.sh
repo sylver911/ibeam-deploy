@@ -1,14 +1,6 @@
 #!/bin/sh
-set -e
-
-# PORT környezeti változó kezelése (alapértelmezett: 8080)
-PORT=${PORT:-8080}
-
-# Konfigurációs fájl módosítása
-echo "[ibeam] Replacing \${PORT} with $PORT in /srv/inputs/conf.yaml"
-sed -i "s|\${PORT}|$PORT|g" /srv/inputs/conf.yaml
-
-# VISSZAADJUK A VEZÉRLÉST AZ EREDETI IMAGE-NEK
-# Nem futtatunk semmit, csak visszatérünk
-# Az eredeti entrypoint és CMD fog futni
-exec "$@"
+# Portszám beillesztése a conf.yaml-be a PORT változóból:
+sed -i "s/^listenPort:.*/listenPort: ${PORT}/" /srv/inputs/conf.yaml
+export IBEAM_GATEWAY_BASE_URL="https://localhost:${PORT}"
+# Eredeti entrypoint indítása (ibeam_starter.py):
+exec python /usr/local/bin/ibeam_starter.py
