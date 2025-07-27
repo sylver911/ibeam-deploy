@@ -2,7 +2,7 @@ ip2loc: "US"
 proxyRemoteSsl: true
 proxyRemoteHost: "https://api.ibkr.com"
 listenPort: 5000
-listenSsl: false
+listenSsl: true
 ccp: false
 authDelay: 3000
 portalBaseURL: ""
