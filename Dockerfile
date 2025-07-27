@@ -1,8 +1,8 @@
 FROM voyz/ibeam:latest
 
-# Egyéni Gateway konfiguráció bemásolása (conf.yaml)
-COPY conf.yaml /srv/inputs/conf.yaml
+USER root
+# Konfiguráció másolása
+COPY srv/inputs /srv/inputs
 
-# (Opcionális) Entrypoint script hozzáadása dinamikus port kezeléséhez
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+# Outputs könyvtár
+RUN mkdir -p /srv/outputs && chmod 777 /srv/outputs
