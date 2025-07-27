@@ -5,4 +5,4 @@ COPY conf.yaml /srv/inputs/conf.yaml
 
 # (Opcionális) Entrypoint script hozzáadása dinamikus port kezeléséhez
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
