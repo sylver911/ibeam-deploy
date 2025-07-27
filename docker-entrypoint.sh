@@ -1,8 +1,13 @@
 #!/bin/sh
 set -e
 
-echo "[ibeam] replacing \${PORT} → $PORT in /srv/inputs/conf.yaml"
-/usr/bin/sed -i "s|\${PORT}|${PORT}|g" /srv/inputs/conf.yaml
+# Ha PORT nincs beállítva, alapértelmezett érték
+PORT=${PORT:-8080}
 
-# átadjuk a vezérlést az eredeti starternek
-exec python /usr/local/bin/ibeam_starter.py
+echo "[ibeam] replacing \${PORT} → $PORT in /srv/inputs/conf.yaml"
+
+# Javított sed: pontos escapeles és változókezelés
+sed -i "s|\${PORT}|${PORT}|g" /srv/inputs/conf.yaml
+
+# Átadjuk a vezérlést az eredeti starternek
+exec python /usr/local/bin/ibeam_starter.py "$@"
