@@ -28,5 +28,6 @@ ips:
     - 127.0.0.1 # localhost
     - 0.0.0.0/0 # all other addresses
     - 188.156.193.196 # IP address of your machine used to call the API
+    - 10.164.74.6
   deny:
     - 212.90.24.10
