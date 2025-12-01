@@ -1,5 +1,8 @@
 FROM voyz/ibeam:latest
-
 USER root
-# Konfiguráció másolása
-COPY srv/inputs /srv/inputs
+
+# Hozd létre a könyvtárat
+RUN mkdir -p /srv/inputs
+
+# Másold csak a szükséges fájlokat (pl. conf.yaml)
+COPY inputs/conf.yaml /srv/inputs/conf.yaml
