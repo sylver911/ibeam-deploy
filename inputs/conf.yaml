@@ -6,6 +6,7 @@ listenSsl: false
 ccp: false
 authDelay: 3000
 portalBaseURL: ""
+svcEnvironment: "v1"
 serverOptions:
   blockedThreadCheckInterval: 1000000
   eventLoopPoolSize: 20
