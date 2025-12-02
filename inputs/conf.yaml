@@ -30,5 +30,6 @@ ips:
     - 0.0.0.0/0 # all other addresses
     - 188.156.193.196 # IP address of your machine used to call the API
     - 10.215.36.115
+    - 208.77.244.15
   deny:
     - 212.90.24.10
