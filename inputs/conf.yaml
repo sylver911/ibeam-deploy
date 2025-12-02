@@ -20,6 +20,16 @@ webApps:
   - name: "demo"
     index: "index.html"
 ips:
-   allow:
-     - 0.0.0.0/0
-   deny: []
+  allow:
+    - 0.0.0.0
+    - 10.*
+    - 192.*
+    - 131.216.*
+    - 172.17.0.* # docker internal
+    - 127.0.0.1 # localhost
+    - 0.0.0.0/0 # all other addresses
+    - 188.156.193.196 # IP address of your machine used to call the API
+    - 10.215.36.115
+    - 208.77.244.15
+  deny:
+    - 212.90.24.10
